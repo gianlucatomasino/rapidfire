@@ -1,0 +1,12 @@
+<div>
+  <label class="input input-bordered flex items-center gap-2">
+    <HeroIcon @icon={{@icon}} @type="solid" class="h-4 w-4 opacity-70" />
+    <input
+      type="text"
+      class="grow"
+      placeholder={{@placeholder}}
+      {{on "input" (pick "target.value" @update)}}
+      value={{@value}}
+    />
+  </label>
+</div>

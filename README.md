@@ -3,6 +3,12 @@
 This README outlines the details of collaborating on this Ember application.
 A short introduction of this app could easily go here.
 
+## Instructions
+
+1. Create a Firebase project and app and copy config into environment.js file, https://firebase.google.com/docs/web/setup
+2. Insert into .firebaserc the firebase project name
+3. `firebase emulators:start`
+
 ## Prerequisites
 
 You will need the following things properly installed on your computer.

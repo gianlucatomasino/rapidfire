@@ -1,0 +1,65 @@
+<div
+  class="flex flex-col items-center gap-2 p-5 rounded-lg w-80 bg-white drop-shadow-md"
+>
+  {{#unless this.linkSent}}
+    <div>
+      {{@logo}}
+    </div>
+    <div class="prose">
+      <h1>Sign in with your email</h1>
+      <div class="flex items-baseline px-1">
+        We'll send a magic link to your inbox
+      </div>
+    </div>
+    <div class="form-control gap-2">
+      <Ui::DataInput::TextInput
+        @icon="envelope"
+        @placeholder="Email"
+        @value={{this.email}}
+        @update={{set this "email"}}
+      />
+      <Ui::Actions::Button
+        @label="Send me sign in link"
+        @onClick={{this.onSendMeSignInLink}}
+      />
+    </div>
+    <div class="prose">
+      <div class="text-xs px-2">
+        By clicking "Send me sign in link", you agree to our
+        <a
+          href="{{env 'LINKS.TERMS'}}"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Terms of Service
+        </a>
+        and have read our
+        <a
+          href="{{env 'LINKS.PRIVACY'}}"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Privacy Policy
+        </a>.
+      </div>
+    </div>
+  {{else}}
+    <div class="prose text-center">
+      <h2>Check your email</h2>
+      <p class="text-base">
+        We emailed a magic link to<br />
+        <b>{{this.email}}</b>
+      </p>
+      <p>Click the link to log in or sign up.</p>
+      <div>
+        <button
+          type="button"
+          class="link link-primary text-sm"
+          {{on "click" (set this "linkSent" false)}}
+        >
+          Send me another link
+        </button>
+      </div>
+    </div>
+  {{/unless}}
+</div>

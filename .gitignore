@@ -23,3 +23,5 @@
 
 # broccoli-debug
 /DEBUG/
+firebase-debug.log
+ui-debug.log
